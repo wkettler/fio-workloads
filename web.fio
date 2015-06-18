@@ -1,0 +1,22 @@
+#
+# web.io
+#
+# FIO job file.
+#
+
+[global]
+name="Web"
+description="Web server workload."
+ioengine=libaio
+size=8g
+filesize=2k-100k
+iodepth=1
+numjobs=16
+directory=/mnt/fio128k/web
+include globals.fio
+
+[standard]
+blocksize=128k
+rw=rw
+rwmixread=95
+stonewall

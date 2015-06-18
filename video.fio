@@ -1,0 +1,29 @@
+#
+# video.io
+#
+# FIO job file.
+#
+
+[global]
+name="Video"
+description="Video workload."
+ioengine=libaio
+iodepth=1
+directory=/mnt/fio128k/video
+include globals.fio
+
+[streaming]
+size=128g
+filesize=2g
+numjobs=4
+blocksize=128k
+rw=read
+stonewall
+
+[production]
+size=500g
+filesize=100g
+numjobs=1
+blocksize=128k
+rw=read
+stonewall

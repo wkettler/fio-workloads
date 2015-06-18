@@ -1,0 +1,22 @@
+#
+# mail.io
+#
+# FIO job file.
+#
+
+[global]
+name="Mail"
+description="Mail server workload."
+directory=/mnt/fio64k/db
+ioengine=libaio
+size=<TBD>
+filesize=2t
+iodepth=4
+numjobs=1
+include globals.fio
+
+[standard]
+blocksize=64k
+rw=randrw
+rwmixread=67
+stonewall

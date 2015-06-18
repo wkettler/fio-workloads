@@ -1,0 +1,22 @@
+#
+# os.io
+#
+# FIO job file.
+#
+
+[global]
+name="Operating System"
+description="Operating system workload."
+directory=/mnt/fio32k/os
+ioengine=libaio
+filesize=20g
+numfiles=2
+iodepth=2
+numjobs=8
+include globals.fio
+
+[esx]
+bssplit=64k/20:4k/20:32k/60
+rw=randrw
+rwmixread=20
+stonewall

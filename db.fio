@@ -1,0 +1,27 @@
+#
+# db.io
+#
+# FIO job file.
+#
+
+[global]
+name="Database"
+description="Database workload for standard and synchronous access."
+directory=/mnt/fio64k/db
+ioengine=libaio
+size=<TBD>
+filesize=500g
+iodepth=4
+numjobs=4
+include globals.fio
+
+[standard]
+blocksize=8k
+rw=randrw
+rwmixread=67
+stonewall
+
+[sequential]
+rw=read
+blocksize=64k
+stonewall

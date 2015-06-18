@@ -1,0 +1,50 @@
+#
+# smb.io
+#
+# FIO job file.
+#
+
+[global]
+name="SMB"
+description="SMB workload for folder copy and file server."
+directory=/mnt/fio128k
+ioengine=libaio
+iodepth=1
+include globals.fio
+
+[copy_r]
+directory=/mnt/fio128k-copy-r
+numjobs=1
+size=<TBD>
+filesize=64k-10m
+blocksize=128k
+rw=read
+
+[copy_w]
+directory=/mnt/fio128k-copy-w
+numjobs=1
+size=<TBD>
+filesize=64k-10m
+blocksize=128k
+rw=write
+stonewall
+
+[fs]
+directory=/mnt/fio128k/fs
+numjobs=8
+size=<TBD>
+filesize=64k-100m
+blocksize=128k
+rw=randrw
+rwmixread=67
+stonewall
+
+[profiles]
+directory=/mnt/fio128k/profiles
+numjobs=32
+size=64m
+filesize=4k-32k
+blocksize=128k
+rw=randrw
+rwmixread=67
+stonewall

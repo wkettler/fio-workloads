@@ -1,0 +1,26 @@
+#
+# backup.io
+#
+# FIO job file.
+#
+
+[global]
+name="Backup"
+description="Backup server workload."
+directory=/mnt/fio128k/backup
+ioengine=libaio
+size=<TBD>
+filesize=4g
+iodepth=1
+numjobs=1
+include globals.fio
+
+[backup]
+blocksize=64k
+rw=write
+stonewall
+
+[restore]
+blocksize=64k
+rw=read
+stonewall

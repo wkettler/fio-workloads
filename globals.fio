@@ -1,0 +1,10 @@
+#
+# globals.fio
+#
+# FIO globals job file.
+#
+
+runtime=<TBD>
+time_based
+ramp_time=<TBD>
+group_reporting
